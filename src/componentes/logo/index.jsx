@@ -1,14 +1,23 @@
 import React from 'react';
-import './estilo.css';
 import logo from '../../imagens/logo.svg';
+import styled from 'styled-components';
+
+const LogoContainer = styled.div`
+display: flex;
+font-size: 30px;
+`;
+
+const LogoImage = styled.img`
+margin-right: 10px;
+`;
 
 export default function Logo() {
   return (
-    <div className="logo">
-      <img src={logo} alt="logo" className='logo-img'></img>
+    <LogoContainer>
+      <LogoImage src={logo} alt="logo" className='logo-img'/>
       <p>
         <strong>Alura</strong>Books
       </p>
-    </div>
+    </LogoContainer>
   );
 }
