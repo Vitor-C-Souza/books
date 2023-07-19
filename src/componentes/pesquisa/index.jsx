@@ -28,19 +28,17 @@ const Subtitulo = styled.h3`
 
 const Resultado = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  cursor: pointer;
-  p {
-    width: 200px;
-  }
-  img {
-    width: 100px;
-  }
+  flex-direction: column;
   &:hover {
     border: 1px solid white;
   }
+`;
+
+const LivrosItens = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
 `;
 
 export default function Pesquisa() {
@@ -60,12 +58,14 @@ export default function Pesquisa() {
           setLivrosPesquisados(resultadoPesquisa);
         }}
       />
-      {livrosPesquisados.map((livro, index) => (
-        <Resultado key={index}>
-          <p>{livro.nome}</p>
-          <img src={livro.src} />
-        </Resultado>
-      ))}
+      <LivrosItens>
+        {livrosPesquisados.map((livro, index) => (
+          <Resultado key={index}>
+            <p>{livro.nome}</p>
+            <img src={livro.src} />
+          </Resultado>
+        ))}
+      </LivrosItens>
     </PesquisaContainer>
   );
 }
