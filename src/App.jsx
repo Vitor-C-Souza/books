@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './componentes/header/index.jsx';
 import styled from 'styled-components';
 import Pesquisa from './componentes/pesquisa/index.jsx';
+import UltimosLancamentos from './componentes/ultimosLancamentos/index.jsx';
 
 const AppContainer = styled.div`  
     width: 100vw;
@@ -15,6 +16,7 @@ function App() {
     <AppContainer>
       <Header />
       <Pesquisa />
+      <UltimosLancamentos />
     </AppContainer>
   );
 }
