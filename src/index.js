@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './Rotas/Home';
+import Home from './routes/Home';
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './componentes/header/index.jsx';
-import Favoritos from './Rotas/Favoritos.jsx';
+import Header from './components/header/index.jsx';
+import Favoritos from './routes/Favoritos.jsx';
 
 const GlobalStyled = createGlobalStyle`
   body {
