@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Input from '../input/index.jsx';
 import styled from 'styled-components';
 import { useState } from 'react';
-import { livros } from './dadosPesquisa.jsx';
+import { Livros } from '../../services/livros.js';
 
 const PesquisaContainer = styled.main`
   background-image: linear-gradient(90deg, #002f52 35%, #326589 165%);
@@ -43,6 +43,16 @@ const LivrosItens = styled.div`
 
 export default function Pesquisa() {
   const [livrosPesquisados, setLivrosPesquisados] = useState([]);
+  const [livros, setLivros] = useState([]);
+
+  useEffect(() => {
+    fetchLivros();
+  }, []);
+
+  async function fetchLivros() {
+    const livrosDaAPI = await Livros.getLivros();
+    setLivros(livrosDaAPI);
+  }
 
   return (
     <PesquisaContainer>
@@ -61,8 +71,8 @@ export default function Pesquisa() {
       <LivrosItens>
         {livrosPesquisados.map((livro, index) => (
           <Resultado key={index}>
-            <p>{livro.nome}</p>
             <img src={livro.src} />
+            <p>{livro.nome}</p>
           </Resultado>
         ))}
       </LivrosItens>
