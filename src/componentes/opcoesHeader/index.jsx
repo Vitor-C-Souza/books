@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Opcoes = styled.ul`
@@ -17,15 +18,17 @@ const Opcao = styled.li`
   min-width: 120px;
 `;
 
-const textoOpcoes = ['CATEGORIAS', 'FAVORITOS', 'MINHA ESTANTE'];
+const textoOpcoes = ['CATEGORIAS', 'FAVORITOS', 'ESTANTE'];
 
 export default function OpcoesHeader() {
   return (
     <Opcoes>
       {textoOpcoes.map((texto, index) => (
-        <Opcao key={index}>
-          <p>{texto}</p>
-        </Opcao>
+        <Link to={`${texto.toLowerCase()}`} key={index}>
+          <Opcao key={index}>
+            <p>{texto}</p>
+          </Opcao>
+        </Link>
       ))}
     </Opcoes>
   );
